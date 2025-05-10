@@ -2,8 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
-const authRoutes = require("./routes/auth");
-const taskRoutes = require("./routes/task");
+const authRoutes = require("./routes/auth.js");
+const taskRoutes = require("./routes/task.js");
 const verifyToken = require("./middleware/authMiddleware");
 
 dotenv.config();
@@ -21,6 +21,10 @@ mongoose
   })
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error(err));
+
+app.get("/", (req, res) => {
+  res.send("API is running...");
+});
 
 app.use("/api/auth", authRoutes);
 app.use("/api/tasks", verifyToken, taskRoutes);
