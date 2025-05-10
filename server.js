@@ -9,7 +9,7 @@ const verifyToken = require("./middleware/authMiddleware");
 dotenv.config();
 const app = express();
 app.use(cors({
-  origin: "task-manager-frontend-h9nx.vercel.app", // Replace with your frontend URL
+  origin: "https://task-manager-frontend-h9nx.vercel.app", // Replace with your frontend URL
   credentials: true,
 }));
 app.use(express.urlencoded({ extended: true }));
